@@ -2,13 +2,13 @@ import { DyteMeeting } from "@dytesdk/react-ui-kit";
 import { DyteProvider, useDyteClient } from "@dytesdk/react-web-core";
 import React, { useEffect } from "react";
 
-export default function Dyte() {
+export default function Meeting({roomName, authToken}) {
   const [dyteMeeting, initMeeting] = useDyteClient();
 
   useEffect(() => {
     initMeeting({
-      roomName: process.env.DYTE_ROOM_NAME,
-      authToken: process.env.DYTE_AUTH_TOKEN,
+      roomName: roomName,
+      authToken: authToken,
       defaults: {
         audio: false,
         video: false,
